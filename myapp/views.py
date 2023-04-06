@@ -43,6 +43,7 @@ def upload_csv(request):
 
 # filters and returns a list of transactions
 def transactions(request):
-    transactions = Transaction.objects.all()
+    transactions = Transaction.objects.filter(
+        product_line='Health and beauty')
     # callback to the transactions.html file and passing the transaction query
     return render(request, 'transactions.html', {'transactions': transactions})
